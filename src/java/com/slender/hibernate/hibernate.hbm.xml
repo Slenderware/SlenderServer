@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class name="com.slender.domain.Company" table="company">
+        <id name="id" type="java.lang.Integer" column="company_id" />
+        <property name="companyName" type="java.lang.String" column="company_name"/>
+        <property name="adminUser" type="java.lang.Integer" column="admin_user"/>
+        <property name="createDate" type="java.util.Date" column="create_date"/>
+    </class>
+    
+    <class name="com.slender.domain.Users" table="users">
+        <id name="id" type="java.lang.Integer" column="user_id" />
+        <property name="lastName" type="java.lang.String" column="last_name"/>
+        <property name="firstName" type="java.lang.String" column="first_name"/>
+        <property name="username" type="java.lang.String" column="username"/>
+        <property name="password" type="java.lang.String" column="password"/>
+        <property name="email" type="java.lang.String" column="email"/>
+        <property name="lastSeen" type="java.util.Date" column="last_seen"/>
+        <property name="companyId" type="java.lang.Integer" column="company_id"/>
+        <property name="roleId" type="java.lang.Integer" column="role_id"/>
+    </class>
+    
+    <class name="com.slender.domain.Attachment" table="attachment">
+        <id name="id" column="attachment_id" />
+        <property name="attachmentName" column="attachment_name"/>
+        <property name="attachment" column="attachment"/>
+        <property name="createDate" column="create_date"/>
+        <property name="projectId" column="project_id" not-null="false" />
+        <property name="taskId" column="task_id" not-null="false" />
+        <property name="userId" column="user_id"/>
+    </class>
+    
+    <class name="com.slender.domain.Comment" table="comments">
+        <id name="id" column="comment_id" />
+        <property name="comment" column="comment"/>
+        <property name="createDate" column="create_date"/>
+        <property name="projectId" column="project_id"/>
+        <property name="taskId" column="task_id"/>
+        <property name="userId" column="user_id"/>
+    </class>
+    
+    <class name="com.slender.domain.Priority" table="priority">
+        <id name="id" column="priority_id" />
+        <property name="priority" column="priority"/>
+    </class>
+    
+    <class name="com.slender.domain.Status" table="status">
+        <id name="id" column="status_id" />
+        <property name="status" column="status"/>
+    </class>
+    
+    <class name="com.slender.domain.Role" table="role">
+        <id name="id" column="role_id" />
+        <property name="role" column="role"/>
+    </class>
+    
+    <class name="com.slender.domain.UserProject" table="jnct_user_project">
+        <id name="id" column="user_project_id" />
+        <property name="userId" column="user_id"/>
+        <property name="projectId" column="project_id"/>
+    </class>
+    
+    <class name="com.slender.domain.UserTask" table="jnct_user_task">
+        <id name="id" column="user_task_id" />
+        <property name="userId" column="user_id"/>
+        <property name="taskId" column="task_id"/>
+    </class>
+    
+    <class name="com.slender.domain.Project" table="project">
+        <id name="id" column="project_id" />
+        <property name="projectCreator" column="project_creator"/>
+        <property name="projectManager" column="project_manager"/>
+        <property name="projectName" column="project_name"/>
+        <property name="projectDescription" column="project_desc"/>
+        <property name="startDate" column="start_date"/>
+        <property name="endDate" column="end_date"/>
+        <property name="statusId" column="status_id"/>
+    </class>
+    
+    <class name="com.slender.domain.Task" table="task">
+        <id name="id" column="task_id" />
+        <property name="projectId" column="project_id"/>
+        <property name="taskName" column="task_name"/>
+        <property name="taskDesc" column="task_desc"/>
+        <property name="plannedStartDate" column="planned_start_date"/>
+        <property name="plannedEndDate" column="planned_end_date"/>
+        <property name="startDate" column="start_date"/>
+        <property name="endDate" column="end_date"/>
+        <property name="timeAllocation" column="time_allocation"/>
+        <property name="priorityId" column="priority_id"/>
+        <property name="statusId" column="status_id"/>
+    </class>
+    
+    <class name="com.slender.domain.TaskTime" table="task_time">
+        <id name="id" column="task_time_id" />
+        <property name="taskId" column="task_id"/>
+        <property name="userId" column="user_id"/>
+        <property name="createDate" column="create_date"/>
+        <property name="timeSpent" column="time_spent"/>
+    </class>
+       
+</hibernate-mapping>

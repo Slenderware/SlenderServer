@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SlenderCrudTestSuite">
+    <test name="AttachmentCrudTest">
+        <classes>
+            <class name="com.slender.crud.AttachmentCrudTest" />
+            <class name="com.slender.crud.CommentCrudTest" />
+            <class name="com.slender.crud.CompanyCrudTest" />
+            <class name="com.slender.crud.PriorityCrudTest" />
+            <class name="com.slender.crud.ProjectCrudTest" />
+            <class name="com.slender.crud.RoleCrudTest" />
+            <class name="com.slender.crud.StatusCrudTest" />
+            <class name="com.slender.crud.TaskCrudTest" />
+            <class name="com.slender.crud.TaskTimeCrudTest" />
+            <class name="com.slender.crud.UserCrudTest" />
+            <class name="com.slender.crud.UserProjectCrudTest" />
+            <class name="com.slender.crud.UserTaskCrudTest" />
+        </classes>
+    </test>
+</suite>
