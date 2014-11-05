@@ -32,6 +32,9 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.javax.faces-2.1.7.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.javax.faces-2.1.7.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

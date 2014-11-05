@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class AttachmentFactory {
     public Attachment getAttachment(String name, String attach, 
-            int projectId, int taskId, int userId){
+            Integer projectId, Integer taskId, Integer userId){
         Attachment attachment = new Attachment();
         Date d = new Date();
         attachment.setAttachmentName(name);

@@ -5,12 +5,14 @@
 package com.slender.domain;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
+@XmlRootElement
 public class Task {
     private int id;
-    private int projectId;
+    private Integer projectId;
     private String taskName;
     private String taskDesc;
     private Date plannedStartDate;
@@ -18,22 +20,22 @@ public class Task {
     private Date startDate;
     private Date endDate;
     private int timeAllocation;
-    private int priorityId;
-    private int statusId;
+    private Integer priorityId;
+    private Integer statusId;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getProjectId() {
+    public Integer getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(int projectId) {
+    public void setProjectId(Integer projectId) {
         this.projectId = projectId;
     }
 
@@ -93,19 +95,19 @@ public class Task {
         this.timeAllocation = timeAllocation;
     }
 
-    public int getPriorityId() {
+    public Integer getPriorityId() {
         return priorityId;
     }
 
-    public void setPriorityId(int priorityId) {
+    public void setPriorityId(Integer priorityId) {
         this.priorityId = priorityId;
     }
 
-    public int getStatusId() {
+    public Integer getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(Integer statusId) {
         this.statusId = statusId;
     }
     

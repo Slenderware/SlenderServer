@@ -6,9 +6,11 @@ package com.slender.domain;
 
 import java.util.Date;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
+@XmlRootElement
 public class Users {
     private int id;
     private String firstName;
@@ -16,24 +18,24 @@ public class Users {
     private String username;
     private String email;
     private String password;
-    private int roleId;
-    private int companyId;
+    private Integer roleId;
+    private Integer companyId;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date lastSeen;
 
-    public int getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
-    public int getCompanyId() {
+    public Integer getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(int companyId) {
+    public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
     }
     
@@ -85,11 +87,11 @@ public class Users {
         this.password = password;
     }
     
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     

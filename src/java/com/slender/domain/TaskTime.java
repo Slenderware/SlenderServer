@@ -5,37 +5,39 @@
 package com.slender.domain;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
+@XmlRootElement
 public class TaskTime {
     private int id;
-    private int taskId;
-    private int userId;
+    private Integer taskId;
+    private Integer userId;
     private Date createDate;
     private int timeSpent;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getTaskId() {
+    public Integer getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(int taskId) {
+    public void setTaskId(Integer taskId) {
         this.taskId = taskId;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

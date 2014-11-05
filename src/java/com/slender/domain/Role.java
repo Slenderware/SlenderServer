@@ -4,18 +4,20 @@
  */
 package com.slender.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
+@XmlRootElement
 public class Role {
     private int id;
     private String role;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

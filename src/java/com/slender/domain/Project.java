@@ -5,40 +5,42 @@
 package com.slender.domain;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
+@XmlRootElement
 public class Project {
     private int id;
-    private int projectCreator;
-    private int projectManager;
+    private Integer projectCreator;
+    private Integer projectManager;
     private String projectName;
     private String projectDescription;
     private Date startDate;
     private Date endDate;
-    private int statusId;
+    private Integer statusId;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getProjectCreator() {
+    public Integer getProjectCreator() {
         return projectCreator;
     }
 
-    public void setProjectCreator(int projectCreator) {
+    public void setProjectCreator(Integer projectCreator) {
         this.projectCreator = projectCreator;
     }
 
-    public int getProjectManager() {
+    public Integer getProjectManager() {
         return projectManager;
     }
 
-    public void setProjectManager(int projectManager) {
+    public void setProjectManager(Integer projectManager) {
         this.projectManager = projectManager;
     }
 
@@ -74,11 +76,11 @@ public class Project {
         this.endDate = endDate;
     }
 
-    public int getStatusId() {
+    public Integer getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(Integer statusId) {
         this.statusId = statusId;
     }
 }

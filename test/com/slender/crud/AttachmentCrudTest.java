@@ -27,7 +27,7 @@ public class AttachmentCrudTest {
     @Test 
     public void persistTest(){
         AttachmentFactory attachmentsFactory = new AttachmentFactory();
-        Attachment attachment = attachmentsFactory.getAttachment("Test", "Test", -1, 0, 0);
+        Attachment attachment = attachmentsFactory.getAttachment("Test", "Test", null, 0, 0);
         attachmentCrud.persist(attachment);
         Assert.assertNotNull(attachment);
     } 

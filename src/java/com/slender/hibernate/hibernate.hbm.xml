@@ -22,7 +22,7 @@
     </class>
     
     <class name="com.slender.domain.Attachment" table="attachment">
-        <id name="id" column="attachment_id" />
+        <id name="id" type="java.lang.Integer" column="attachment_id" />
         <property name="attachmentName" column="attachment_name"/>
         <property name="attachment" column="attachment"/>
         <property name="createDate" column="create_date"/>
@@ -53,6 +53,11 @@
     <class name="com.slender.domain.Role" table="role">
         <id name="id" column="role_id" />
         <property name="role" column="role"/>
+    </class>
+    
+    <class name="com.slender.domain.Session" table="session">
+        <id name="id" column="session_id" />
+        <property name="userId" column="user_id"/>
     </class>
     
     <class name="com.slender.domain.UserProject" table="jnct_user_project">

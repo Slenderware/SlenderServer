@@ -15,6 +15,7 @@
             <class name="com.slender.crud.UserCrudTest" />
             <class name="com.slender.crud.UserProjectCrudTest" />
             <class name="com.slender.crud.UserTaskCrudTest" />
+            <class name="com.slender.crud.SessionCrudTest" />
         </classes>
     </test>
 </suite>

@@ -35,7 +35,6 @@ public class AttachmentCrudImpl implements AttachmentCrud {
         attachments = query.list();
         return attachments;
     }
-
     @Override
     public void persist(Attachment entity) {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -44,7 +43,17 @@ public class AttachmentCrudImpl implements AttachmentCrud {
         session.getTransaction().commit();
         session.close();
     }
-
+    
+    public Attachment persistReturn(Attachment entity) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(entity);
+        session.flush();
+        session.getTransaction().commit();
+        session.close();
+        return entity;
+    }
+    
     @Override
     public void merge(Attachment entity) {
         session = HibernateUtil.getSessionFactory().openSession();

@@ -5,18 +5,19 @@
 package com.slender.domain;
 
 import java.util.Date;
-import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
+@XmlRootElement
 public class Attachment {
     private int id;
     private String attachmentName;
     private String attachment;
     private Date createDate;
-    private int projectId ;
-    private int taskId;
-    private int userId;
+    private Integer projectId ;
+    private Integer taskId;
+    private Integer userId;
 
     public int getId() {
         return id;
@@ -50,27 +51,27 @@ public class Attachment {
         this.createDate = createDate;
     }
 
-    public int getProjectId() {
+    public Integer getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(int projectId) {
+    public void setProjectId(Integer projectId) {
         this.projectId = projectId;
     }
 
-    public int getTaskId() {
+    public Integer getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(int taskId) {
+    public void setTaskId(Integer taskId) {
         this.taskId = taskId;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 }

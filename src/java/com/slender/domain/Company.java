@@ -5,20 +5,22 @@
 package com.slender.domain;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
+@XmlRootElement
 public class Company {
     private int id;
     private String companyName;
-    private int adminUser;
+    private Integer adminUser;
     private Date createDate;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -30,11 +32,11 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public int getAdminUser() {
+    public Integer getAdminUser() {
         return adminUser;
     }
 
-    public void setAdminUser(int adminUser) {
+    public void setAdminUser(Integer adminUser) {
         this.adminUser = adminUser;
     }
 
