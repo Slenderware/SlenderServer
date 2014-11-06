@@ -4,13 +4,14 @@
  */
 package com.slender.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
 @XmlRootElement
-public class Project {
+public class Project implements Serializable{
     private int id;
     private Integer projectCreator;
     private Integer projectManager;

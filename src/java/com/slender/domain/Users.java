@@ -4,6 +4,7 @@
  */
 package com.slender.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,7 +12,7 @@ import org.hibernate.annotations.Entity;
 
 @Entity
 @XmlRootElement
-public class Users {
+public class Users implements Serializable{
     private int id;
     private String firstName;
     private String lastName;

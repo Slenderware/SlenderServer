@@ -23,8 +23,10 @@ public class Main {
         AttachmentCrudImpl attachmentCrud = new AttachmentCrudImpl();
         AttachmentFactory attachmentsFactory = new AttachmentFactory();
         Attachment attachment = attachmentsFactory.getAttachment("Return", "Return", null, 0, 0);
-        //System.out.println(attachment.getId());
-        attachmentCrud.persistReturn(attachment);
+        System.out.println(attachment.getId());
+        Attachment attachmen = attachmentsFactory.getAttachment("Return", "Return", null, 0, 0);
+        System.out.println(attachmen.getId());
+        System.out.println(attachmentCrud.persist(attachment).getAttachmentName());
         
         //List<Users> users = new ArrayList();
         //UserCrud userCrud = new UserCrudImpl();

@@ -4,12 +4,13 @@
  */
 package com.slender.domain;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
 @XmlRootElement
-public class Status {
+public class Status implements Serializable{
     private int id;
     private String status;
 

@@ -8,7 +8,7 @@ public interface Service <T, ID>{
 
     public List<T> findAll();
 
-    public void persist(final T entity);
+    public T persist(final T entity);
 
     public void merge(final T entity);
 

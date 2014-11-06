@@ -36,12 +36,16 @@ public class ProjectCrudImpl implements ProjectCrud{
     }
 
     @Override
-    public void persist(Project entity) {
+    public Project persist(Project entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
+        query = session.createSQLQuery("select last_insert_id() from Project");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
+        return findById(id);
     }
 
     @Override

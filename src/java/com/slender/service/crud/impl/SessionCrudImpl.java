@@ -36,13 +36,14 @@ public class SessionCrudImpl implements SessionCrud{
         return sesss;
     }
 
-    
-    public void persist(Session entity) {
+    public Session persist(Session entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
         session.getTransaction().commit();
         session.close();
+        return entity;
     }
 
     

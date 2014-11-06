@@ -35,13 +35,17 @@ public class StatusCrudImpl implements StatusCrud{
         return statuss;
     }
 
-    @Override
-    public void persist(Status entity) {
+     @Override
+    public Status persist(Status entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
+        query = session.createSQLQuery("select last_insert_id() from Status");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
+        return findById(id);
     }
 
     @Override

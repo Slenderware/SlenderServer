@@ -6,6 +6,9 @@ package com.slender.service.crud.impl;
 import com.slender.domain.Attachment;
 import com.slender.hibernate.HibernateUtil;
 import com.slender.service.crud.AttachmentCrud;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -35,23 +38,18 @@ public class AttachmentCrudImpl implements AttachmentCrud {
         attachments = query.list();
         return attachments;
     }
-    @Override
-    public void persist(Attachment entity) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(entity);
-        session.getTransaction().commit();
-        session.close();
-    }
     
-    public Attachment persistReturn(Attachment entity) {
+    @Override
+    public Attachment persist(Attachment entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
         session.flush();
+        query = session.createSQLQuery("select last_insert_id() from Attachment");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
-        return entity;
+        return findById(id);
     }
     
     @Override

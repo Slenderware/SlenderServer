@@ -37,12 +37,16 @@ public class UserProjectCrudImpl implements UserProjectCrud{
     }
 
     @Override
-    public void persist(UserProject entity) {
+    public UserProject persist(UserProject entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
+        query = session.createSQLQuery("select last_insert_id() from jnct_user_project");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
+        return findById(id);
     }
 
     @Override

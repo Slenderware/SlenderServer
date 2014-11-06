@@ -1,12 +1,13 @@
 
 package com.slender.domain;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
 @XmlRootElement
-public class UserProject {
+public class UserProject implements Serializable{
     private int id;
     private Integer userId;
     private Integer projectId;

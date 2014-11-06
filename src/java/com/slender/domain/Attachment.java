@@ -4,13 +4,17 @@
  */
 package com.slender.domain;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Entity;
 
 @Entity
 @XmlRootElement
-public class Attachment {
+public class Attachment implements Serializable{
     private int id;
     private String attachmentName;
     private String attachment;

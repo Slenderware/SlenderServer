@@ -36,12 +36,16 @@ public class TaskCrudImpl implements TaskCrud{
     }
 
     @Override
-    public void persist(Task entity) {
+    public Task persist(Task entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
+        query = session.createSQLQuery("select last_insert_id() from Task");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
+        return findById(id);
     }
 
     @Override

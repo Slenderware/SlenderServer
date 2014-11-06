@@ -37,12 +37,16 @@ public class UserTaskCrudImpl implements UserTaskCrud{
     }
 
     @Override
-    public void persist(UserTask entity) {
+    public UserTask persist(UserTask entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
+        query = session.createSQLQuery("select last_insert_id() from jnct_user_task");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
+        return findById(id);
     }
 
     @Override

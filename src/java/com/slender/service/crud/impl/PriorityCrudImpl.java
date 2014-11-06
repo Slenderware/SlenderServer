@@ -36,12 +36,16 @@ public class PriorityCrudImpl implements PriorityCrud{
     }
 
     @Override
-    public void persist(Priority entity) {
+    public Priority persist(Priority entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
+        query = session.createSQLQuery("select last_insert_id() from Priority");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
+        return findById(id);
     }
 
     @Override

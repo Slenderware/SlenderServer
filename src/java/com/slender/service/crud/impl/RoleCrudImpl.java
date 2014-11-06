@@ -36,12 +36,16 @@ public class RoleCrudImpl implements RoleCrud{
     }
 
     @Override
-    public void persist(Role entity) {
+    public Role persist(Role entity) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
+        session.flush();
+        query = session.createSQLQuery("select last_insert_id() from Role");
+        int id = Integer.parseInt(query.list().get(0).toString());
         session.getTransaction().commit();
         session.close();
+        return findById(id);
     }
 
     @Override
